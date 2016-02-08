@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title チラ裏
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js')
+  body
+    // p#lang
+    pre
+      code#tiraura #{body}
+    p= 'created at ' + createdAt.toLocaleString()
+    include footer
+    script.
+      var tiraura = document.getElementById('tiraura');
+      // var lang = document.getElementById('lang');
+      hljs.highlightBlock(tiraura);
+      // if (tiraura.result.language) {
+      //   lang.innerHTML = tiraura.result.language;
+      // }

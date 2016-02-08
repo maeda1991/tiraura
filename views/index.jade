@@ -1,5 +1,22 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    title チラ裏
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/codemirror.css')
+    link(rel='stylesheet', href='/stylesheets/codemirror-base16-light.css')
+    script(src='/scripts/codemirror.js')
+    script(src='/scripts/codemirror-active-line.js')
+  body
+    h1 チラ裏
+    form(method='post', action='/')
+      textarea(name='body')#tiraura
+      input(type='submit', value='publish')
+    include footer
+    script.
+      var tiraura = document.getElementById('tiraura')
+      var editor = CodeMirror.fromTextArea(tiraura, {
+        theme: 'base16-light',
+        lineNumbers: true,
+        styleActiveLine: true,
+      });
